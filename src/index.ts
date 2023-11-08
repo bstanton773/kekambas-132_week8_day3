@@ -91,6 +91,7 @@ When enabled, the compiler will check all code paths in a function to ensure the
 //         return age
 //     }
 //     //return undefined is implicit here
+//     return
 // }    
 
 /*
@@ -100,7 +101,8 @@ Recommended:true
 When enabled, the compiler will report unused local variables.
 */
 // function doSomething(){
-//     let unused;
+//     let unused = 'Brian';
+//     return 10 + 25;
 // }
 
 /*
@@ -110,8 +112,9 @@ Recommended:true
 When enabled, the compiler will report unused parameters.
 */
 
-// function unUsedParam(param1:Event, param2:string){
-//     console.log(param2)
+// function unUsedParam(param1:number, param2:string){
+//     console.log(param2);
+//     console.log(param1);
 // }
 /*
 Sometime you want to ignore the parameter without turning off this compiler option
@@ -122,10 +125,18 @@ in to TypeScript
 //     console.log(param2)
 // }
 
+// let colors: string[] = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
+
+// function getEvenIndices(_:string, index:number){
+//     return index % 2 === 0
+// }
+
+// colors.filter(getEvenIndices);
+
 
 /*
 strictNullChecks
-Default: false
+Default: true
 Recommended: true
 
 When enabled, null and undefined will not be acceptable values for variables 
@@ -135,14 +146,14 @@ So, you’ll get an error if you set a variable to null or undefined.
 
 // function makeLowerCase(s:string){
 //     return s.toLowerCase()
-// }
+// };
 
-// makeLowerCase(null)
+// makeLowerCase(null);
 
 /*
 allowUnreachableCode
 Default: true
-Recommended: true
+Recommended: false
 When set the false, reports error about unreachable code. 
 */
 
@@ -191,8 +202,8 @@ When enabled this will allow us to import JavaScript code in our TypeScript
 */
 
 // import {squareFootage} from './area';
-// let myArea=squareFootage(4.,5)
-// console.log(myArea)
+// let myArea=squareFootage(10, 20);
+// console.log(myArea);
 
 /*
 checkJs
@@ -236,9 +247,9 @@ create the area.d.ts file now
 */
 
 //We now get error right away
-// import {squareFootage} from './area';
-// let myArea3=squareFootage("A","B")
-// console.log(myArea3)
+import {squareFootage} from './area';
+let myArea3=squareFootage(10,20)
+console.log(myArea3)
 
 
 /*
@@ -254,11 +265,11 @@ This package generates universally unique identifiers
 // Note the error Could not find a declaration file for module 'uuid'
 // To Fix this error the Definitely Typed Library contains
 // types for the common JS Libraries (Note: not all libraries)
-// to beable to use its types we can run 
+// to be able to use its types we can run 
 // npm install @types/uuid
 // Now the error has gone away
 
-// import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from "uuid";
 
-// let uuid= uuidv4()
-// console.log(uuid)
+let uuid= uuidv4()
+console.log(uuid);

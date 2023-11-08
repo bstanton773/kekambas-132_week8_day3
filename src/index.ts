@@ -1,7 +1,7 @@
 /*
 To run TypeScript code it first must be compile with the TypeScript compiler - tsc
 we can run tsc and a ts file name and it will convert that file to a js file
-if se set the rootDir of our project to a folder of TS files running tsc 
+if we set the rootDir of our project to a folder of TS files running tsc 
 will compile all the files into JS files.
 
 To run these files on node we can simply run node FILENAME.js
@@ -30,6 +30,12 @@ to the "scripts" section
 
 Note this will run any code executed in index.ts but not other .ts files.
 */
+
+function addNums(num1:number, num2:number):number{
+    return num1 + num2;
+}
+
+console.log(addNums(10, 50));
 
 
 /*
@@ -252,7 +258,7 @@ This package generates universally unique identifiers
 // npm install @types/uuid
 // Now the error has gone away
 
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 
-let uuid= uuidv4()
-console.log(uuid)
+// let uuid= uuidv4()
+// console.log(uuid)
